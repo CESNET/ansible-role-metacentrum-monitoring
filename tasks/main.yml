@@ -1,0 +1,4 @@
+---
+# tasks file for installing components needed for passive checks from MetaCentrum's Nagios
+
+- include_tasks: "{{ ansible_os_family }}.yml"

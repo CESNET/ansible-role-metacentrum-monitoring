@@ -1,0 +1,21 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: metacentrum-monitoring
+  owner: pajavyskocil
+  author: pajavyskocil
+  description: Monitoring by metacentrum nagios.
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+        - buster
+  galaxy_tags:
+    - monitoring
+    - metacentrum
+    - nagios
+
+allow_duplicates: true

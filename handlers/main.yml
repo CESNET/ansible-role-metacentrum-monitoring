@@ -1,0 +1,6 @@
+---
+- name: reload SSH daemon
+  service:
+    name: sshd
+    state: reloaded
+  listen: "reload ssh daemon"
