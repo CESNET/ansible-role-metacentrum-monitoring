@@ -110,7 +110,7 @@
     path: "/etc/ssh/sshd_config"
     regexp: 'UseDNS'
     line: 'UseDNS yes'
-  notify: "reload ssh daemon"---
+  notify: "reload ssh daemon"
 
 - name: Install/Reinstall check_mk packages
   apt:
