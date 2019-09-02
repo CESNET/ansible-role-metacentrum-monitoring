@@ -2,12 +2,11 @@
 dependencies: []
 
 galaxy_info:
-  role_name: metacentrum-monitoring
-  owner: pajavyskocil
-  author: pajavyskocil
-  description: Monitoring by metacentrum nagios.
+  role_name: metacentrum_monitoring
+  company: CESNET
+  description: Monitoring by metacentrum Nagios.
   license: "license (BSD, MIT)"
-  min_ansible_version: 2.4
+  min_ansible_version: 2.5
   platforms:
     - name: Debian
       versions:
@@ -17,5 +16,3 @@ galaxy_info:
     - monitoring
     - metacentrum
     - nagios
-
-allow_duplicates: true
