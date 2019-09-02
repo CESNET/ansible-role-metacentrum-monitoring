@@ -3,6 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: metacentrum_monitoring
+  author: Pavel Vyskočil
   company: CESNET
   description: Monitoring by metacentrum Nagios.
   license: "license (BSD, MIT)"
