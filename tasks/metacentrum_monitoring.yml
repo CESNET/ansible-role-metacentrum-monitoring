@@ -118,7 +118,7 @@
 
 - name: Add nagios local_scripts from template
   template:
-    src: "{{ item }}.j2"
+    src: "{{ item }}.jinja2"
     dest: "/usr/lib/check_mk_agent/local/{{ item }}"
     force: yes
     mode: 0755
@@ -136,7 +136,7 @@
 
 - name: Add nagios plugins from template
   template:
-    src: "{{ item }}.j2"
+    src: "{{ item }}.jinja2"
     dest: "/usr/lib/check_mk_agent/plugins/{{ item }}"
     force: yes
     mode: 0755
