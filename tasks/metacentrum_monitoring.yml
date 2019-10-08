@@ -151,3 +151,6 @@
     mode: 0755
   with_items: "{{ monitoring_check_mk_plugins_file }}"
   when: monitoring_check_mk_plugins_file|length > 0
+
+- name: "flush handlers"
+  meta: flush_handlers
