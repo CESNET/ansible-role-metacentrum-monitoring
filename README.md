@@ -5,6 +5,7 @@ Role for setting up monitoring by MetaCentrum's Nagios.
 
 Adds MetaCentrum repository, installs needed packages, modifies ssh demon to use DNS.
 
+
 Requirements
 ------------
 
