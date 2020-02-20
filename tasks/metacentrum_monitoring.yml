@@ -104,14 +104,6 @@
   with_items:
     - "deb ftp://repo.metacentrum.cz/ all main pilot"
 
-# needed for working from="aiglos.zcu.cz" in  .ssh/authorized_keys
-- name: Enable DNS host resolving for SSH daemon
-  lineinfile:
-    path: "/etc/ssh/sshd_config"
-    regexp: 'UseDNS'
-    line: 'UseDNS yes'
-  notify: "reload ssh daemon"
-
 - name: Install/Reinstall check_mk packages
   apt:
     name: "{{ monitoring_check_mk_packages }}"
