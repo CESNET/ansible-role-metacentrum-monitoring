@@ -4,6 +4,7 @@
     name:
       - apt-transport-https
       - lsb-release
+      - gpg
 
 - name: Add MetaCentrum repository key
   apt_key:
