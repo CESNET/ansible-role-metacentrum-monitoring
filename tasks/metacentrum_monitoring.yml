@@ -102,7 +102,7 @@
     repo: "{{ item }}"
     filename: 'meta_repo'
     state: present
-  with_items:
+  loop:
     - "deb ftp://repo.metacentrum.cz/ all main pilot"
 
 - name: Install/Reinstall check_mk packages
@@ -115,7 +115,7 @@
     dest: "/usr/lib/check_mk_agent/local/{{ item }}"
     force: yes
     mode: 0755
-  with_items: "{{ monitoring_check_mk_local_scripts_by_template }}"
+  loop: "{{ monitoring_check_mk_local_scripts_by_template }}"
   when: monitoring_check_mk_local_scripts_by_template|length > 0
 
 - name: Add nagios local_scripts from file
@@ -124,7 +124,7 @@
     dest: "/usr/lib/check_mk_agent/local/{{ item }}"
     force: yes
     mode: 0755
-  with_items: "{{ monitoring_check_mk_local_scripts_file }}"
+  loop: "{{ monitoring_check_mk_local_scripts_file }}"
   when: monitoring_check_mk_local_scripts_file|length > 0
 
 - name: Add nagios plugins from template
@@ -133,7 +133,7 @@
     dest: "/usr/lib/check_mk_agent/plugins/{{ item }}"
     force: yes
     mode: 0755
-  with_items: "{{ monitoring_check_mk_plugins_by_template }}"
+  loop: "{{ monitoring_check_mk_plugins_by_template }}"
   when: monitoring_check_mk_plugins_by_template|length > 0
 
 - name: Add nagios plugins from file
@@ -142,7 +142,7 @@
     dest: "/usr/lib/check_mk_agent/plugins/{{ item }}"
     force: yes
     mode: 0755
-  with_items: "{{ monitoring_check_mk_plugins_file }}"
+  loop: "{{ monitoring_check_mk_plugins_file }}"
   when: monitoring_check_mk_plugins_file|length > 0
 
 - name: "flush handlers"
