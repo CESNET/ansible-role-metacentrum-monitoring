@@ -111,39 +111,25 @@
 
 - name: Add nagios local_scripts from template
   template:
-    src: "{{ item }}.jinja2"
-    dest: "/usr/lib/check_mk_agent/local/{{ item }}"
+    src: "{{ item.src }}.jinja2"
+    dest: "/usr/lib/check_mk_agent/{{ item.dest | default(item.src) }}"
+    mode: "{{ item.mode | default(0711) }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
     force: yes
-    mode: 0755
-  loop: "{{ monitoring_check_mk_local_scripts_by_template }}"
-  when: monitoring_check_mk_local_scripts_by_template|length > 0
+  loop: "{{ monitoring_check_mk_templates }}"
+  when: monitoring_check_mk_templates|length > 0
 
-- name: Add nagios local_scripts from file
+- name: Add nagios files
   copy:
-    src: "{{ item }}"
-    dest: "/usr/lib/check_mk_agent/local/{{ item }}"
+    src: "{{ item.src }}"
+    dest: "/usr/lib/check_mk_agent/{{ item.dest | default(item.src) }}"
+    mode: "{{ item.mode | default(0711) }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
     force: yes
-    mode: 0755
-  loop: "{{ monitoring_check_mk_local_scripts_file }}"
-  when: monitoring_check_mk_local_scripts_file|length > 0
-
-- name: Add nagios plugins from template
-  template:
-    src: "{{ item }}.jinja2"
-    dest: "/usr/lib/check_mk_agent/plugins/{{ item }}"
-    force: yes
-    mode: 0755
-  loop: "{{ monitoring_check_mk_plugins_by_template }}"
-  when: monitoring_check_mk_plugins_by_template|length > 0
-
-- name: Add nagios plugins from file
-  copy:
-    src: "{{ item }}"
-    dest: "/usr/lib/check_mk_agent/plugins/{{ item }}"
-    force: yes
-    mode: 0755
-  loop: "{{ monitoring_check_mk_plugins_file }}"
-  when: monitoring_check_mk_plugins_file|length > 0
+  loop: "{{ monitoring_check_mk_files }}"
+  when: monitoring_check_mk_files|length > 0
 
 - name: "flush handlers"
   meta: flush_handlers
