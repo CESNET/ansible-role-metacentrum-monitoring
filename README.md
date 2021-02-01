@@ -15,10 +15,22 @@ Role Variables
 --------------
 
 - monitoring_check_mk_packages - list of packages to install
-- monitoring_check_mk_local_scripts_file - list of files to copy to /usr/lib/check_mk_agent/local/
-- monitoring_check_mk_local_scripts_by_template - list of templates for files in /usr/lib/check_mk_agent/local/ (File name without .jinja2)
-- monitoring_check_mk_plugins_file - list of files to copy to /usr/lib/check_mk_agent/plugins/
-- monitoring_check_mk_plugins_by_template - list of templates for files in /usr/lib/check_mk_agent/plugins/ (File name without .jinja2)
+- monitoring_check_mk_files - list of files to copy to /usr/lib/check_mk_agent/
+  - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
+    - src - required
+    - dest - optional; Default value: same as src
+    - user - optional; Default value: root
+    - group - optional; Default value: root
+    - mode - optional; Default value: 0711
+    
+- monitoring_check_mk_templates - list of templates for files in /usr/lib/check_mk_agent/ (File name without .j2)
+  - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
+    - src - required
+    - dest - optional; Default value: same as src
+    - user - optional; Default value: root
+    - group - optional; Default value: root
+    - mode - optional; Default value: 0711
+    
 
 Dependencies
 ------------

@@ -7,16 +7,19 @@ monitoring_check_mk_packages:
   - check-mk-agent-meta-key
   - time
 
-# List of files which will be copied to /usr/lib/check_mk_agent/local/
-# Without .jinja2
-monitoring_check_mk_local_scripts_by_template: []
+# List of files which will be created from template in /usr/lib/check_mk_agent/
+# Without .j2
+# Example value: - {src: "", dest: "", user: "", group: "", mode: ""}
+#   Default dest: src
+#   Default mode: 0711
+#   Default owner: root
+#   Default group: root
+monitoring_check_mk_templates: []
 
-# List of templates for files in /usr/lib/check_mk_agent/local/
-monitoring_check_mk_local_scripts_file: []
-
-# List of files which will be copied to /usr/lib/check_mk_agent/plugins/
-# Without .jinja2
-monitoring_check_mk_plugins_by_template: []
-
-# List of templates for files in /usr/lib/check_mk_agent/plugins/
-monitoring_check_mk_plugins_file: []
+# List of templates for files in /usr/lib/check_mk_agent/
+# Example value: - {src: "", dest: "", user: "", group: "", mode: ""}
+#   Default dest: src
+#   Default mode: 0711
+#   Default owner: root
+#   Default group: root
+monitoring_check_mk_files: []
