@@ -8,7 +8,7 @@ monitoring_check_mk_packages:
   - time
 
 # List of files which will be created from template in /usr/lib/check_mk_agent/
-# Without .jinja2
+# Without .j2
 # Example value: - {src: "", dest: "", user: "", group: "", mode: ""}
 #   Default dest: src
 #   Default mode: 0711

@@ -23,7 +23,7 @@ Role Variables
     - group - optional; Default value: root
     - mode - optional; Default value: 0711
     
-- monitoring_check_mk_templates - list of templates for files in /usr/lib/check_mk_agent/ (File name without .jinja2)
+- monitoring_check_mk_templates - list of templates for files in /usr/lib/check_mk_agent/ (File name without .j2)
   - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
     - src - required
     - dest - optional; Default value: same as src
