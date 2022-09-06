@@ -7,6 +7,9 @@ monitoring_check_mk_packages:
   - check-mk-agent-meta-key
   - time
 
+# List of directories which will be created under /usr/lib/check_mk_agent/
+monitoring_check_mk_dirs: []
+
 # List of files which will be created from template in /usr/lib/check_mk_agent/
 # Without .j2
 # Example value: - {src: "", dest: "", user: "", group: "", mode: ""}

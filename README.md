@@ -15,6 +15,12 @@ Role Variables
 --------------
 
 - monitoring_check_mk_packages - list of packages to install
+- monitoring_check_mk_dirs - list of directories which will be created under /usr/lib/check_mk_agent/
+  - Example value: `- {path: "", owner: "", group: "", mode: ""}` where:
+    - path - required
+    - owner - optional; Default value: root
+    - group - optional; Default value: root
+    - mode - optional; Default value: 0755
 - monitoring_check_mk_files - list of files to copy to /usr/lib/check_mk_agent/
   - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
     - src - required

@@ -109,6 +109,15 @@
   apt:
     name: "{{ monitoring_check_mk_packages }}"
 
+- name: Ensure that directory are created
+  file:
+    path: "/usr/lib/check_mk_agent/{{ item.path }}"
+    owner: "{{ item.owner | default('root') }}"
+    group: "{{ item.group | default('root') }}"
+    mode: "{{ item.mode | default('0755') }}"
+    state: directory
+  loop: "{{ monitoring_check_mk_dirs }}"
+  
 - name: Add nagios local_scripts from template
   template:
     src: "{{ item.src }}.j2"
