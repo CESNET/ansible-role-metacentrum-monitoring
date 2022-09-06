@@ -22,10 +22,10 @@ Role Variables
     - group - optional; Default value: root
     - mode - optional; Default value: 0755
 - monitoring_check_mk_files - list of files to copy to /usr/lib/check_mk_agent/
-  - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
+  - Example value: `- {src: "", dest: "", owner: "", group: "", mode: ""}` where:
     - src - required
     - dest - optional; Default value: same as src
-    - user - optional; Default value: root
+    - owner - optional; Default value: root
     - group - optional; Default value: root
     - mode - optional; Default value: 0711
     
@@ -33,7 +33,7 @@ Role Variables
   - Example value: `- {src: "", dest: "", user: "", group: "", mode: ""}` where:
     - src - required
     - dest - optional; Default value: same as src
-    - user - optional; Default value: root
+    - owner - optional; Default value: root
     - group - optional; Default value: root
     - mode - optional; Default value: 0711
     
