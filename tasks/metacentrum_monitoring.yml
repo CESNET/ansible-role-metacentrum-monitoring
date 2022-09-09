@@ -122,7 +122,7 @@
   template:
     src: "{{ item.src }}.j2"
     dest: "/usr/lib/check_mk_agent/{{ item.dest | default(item.src) }}"
-    mode: "{{ item.mode | default(0711) }}"
+    mode: "{{ item.mode | default('0711') }}"
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
     force: yes
@@ -133,7 +133,7 @@
   copy:
     src: "{{ item.src }}"
     dest: "/usr/lib/check_mk_agent/{{ item.dest | default(item.src) }}"
-    mode: "{{ item.mode | default(0711) }}"
+    mode: "{{ item.mode | default('0711') }}"
     owner: "{{ item.owner | default('root') }}"
     group: "{{ item.group | default('root') }}"
     force: yes
