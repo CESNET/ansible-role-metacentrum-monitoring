@@ -6,11 +6,18 @@
       - lsb-release
       - gpg
 
+- name: "create /etc/apt/keyrings"
+  file:
+    state: directory
+    path: /etc/apt/keyrings
+    owner: root
+    group: root
+    mode: '0755'
+
 - name: Add MetaCentrum repository key
-  apt_key:
-    id: A385CDB0
-    state: present
-    data: |
+  copy:
+    dest: /etc/apt/keyrings/metacentrum.asc
+    content: |
       -----BEGIN PGP PUBLIC KEY BLOCK-----
       Version: GnuPG v1.4.12 (GNU/Linux)
 
@@ -91,19 +98,12 @@
       =1jV6
       -----END PGP PUBLIC KEY BLOCK-----
 
-- name: enable FTP Debian repositories
-  copy:
-    dest: '/etc/apt/apt.conf.d/85enable-ftp'
-    content: 'Dir::Bin::Methods::ftp "ftp";'
-    force: no
 
 - name: Add MetaCentrum repository
   apt_repository:
-    repo: "{{ item }}"
+    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/metacentrum.asc] https://repo.metacentrum.cz/ all main pilot"
     filename: 'meta_repo'
     state: present
-  loop:
-    - "deb ftp://repo.metacentrum.cz/ all main pilot"
 
 - name: Install/Reinstall check_mk packages
   apt:
