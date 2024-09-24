@@ -36,7 +36,9 @@ Role Variables
     - owner - optional; Default value: root
     - group - optional; Default value: root
     - mode - optional; Default value: 0711
-    
+- monitoring_check_mk_config - path to directory with config files (*.cfg) for 
+  check_mk to be copied to /etc/check_mk/. Skipped if empty.
+
 
 Dependencies
 ------------

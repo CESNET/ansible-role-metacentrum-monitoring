@@ -117,7 +117,7 @@
     mode: "{{ item.mode | default('0755') }}"
     state: directory
   loop: "{{ monitoring_check_mk_dirs }}"
-  
+
 - name: Add nagios local_scripts from template
   template:
     src: "{{ item.src }}.j2"
@@ -139,6 +139,18 @@
     force: yes
   loop: "{{ monitoring_check_mk_files }}"
   when: monitoring_check_mk_files|length > 0
+
+- name: Add nagios local config files (/etc/check_mk/)
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/check_mk/"
+    mode: '0644'
+    owner: root
+    group: root
+    force: yes
+  with_fileglob:
+    - "{{ monitoring_check_mk_config }}/*.cfg"
+  when: monitoring_check_mk_config|length > 0
 
 - name: "flush handlers"
   meta: flush_handlers
