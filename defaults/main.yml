@@ -26,3 +26,6 @@ monitoring_check_mk_templates: []
 #   Default owner: root
 #   Default group: root
 monitoring_check_mk_files: []
+
+# Path to directory with check_mk config files (*.cfg) to be copied to /etc/check_mk/
+monitoring_check_mk_config: ""
