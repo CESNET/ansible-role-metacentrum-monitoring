@@ -98,11 +98,20 @@
       =1jV6
       -----END PGP PUBLIC KEY BLOCK-----
 
+- name: remove old format meta_repo.list
+  file:
+    path: /etc/apt/sources.list.d/meta_repo.list
+    state: absent
 
-- name: Add MetaCentrum repository
-  apt_repository:
-    repo: "deb [arch=amd64 signed-by=/etc/apt/keyrings/metacentrum.asc] https://repo.metacentrum.cz/ all main pilot"
-    filename: 'meta_repo'
+- name: add MetaCentrum repository
+  ansible.builtin.deb822_repository:
+    name: meta_repo
+    types: deb
+    architectures: amd64
+    signed_by: /etc/apt/keyrings/metacentrum.asc
+    uris: https://repo.metacentrum.cz/
+    suites: all
+    components: [ "main", "pilot" ]
     state: present
 
 - name: Install/Reinstall check_mk packages
