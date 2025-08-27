@@ -1,6 +1,7 @@
 ---
 - name: Install apt-transport-https and lsb-release
   apt:
+    update_cache: yes
     name:
       - apt-transport-https
       - lsb-release
@@ -116,6 +117,7 @@
 
 - name: Install/Reinstall check_mk packages
   apt:
+    update_cache: yes
     name: "{{ monitoring_check_mk_packages }}"
 
 - name: Ensure that directory are created
