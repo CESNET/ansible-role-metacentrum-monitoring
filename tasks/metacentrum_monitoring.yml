@@ -15,140 +15,14 @@
     group: root
     mode: '0755'
 
-- name: Add MetaCentrum repository key
-  copy:
-    dest: /etc/apt/keyrings/metacentrum2025.asc
-    content: |
-      -----BEGIN PGP PUBLIC KEY BLOCK-----
-
-      mQINBFcd5LoBEADM6Z0mBxlzRt4hM19beSOFqHF9jZBMhefCmccufOJXvzy6pS65
-      nT+PRYbcjVCmg8MQatRK4eag2/Eq+2Sxev525g4ptUhQl/gSkjA+bHr4RDMDsdxO
-      4NJqYwbs+9PVibA/pxppY12ICq9+oU4ixZnqUD9CzLT2YiVJBbDfRFmEzgUK4nyW
-      2z3Ai5P1mgZBj/1/lLnvAimnzHLmcavmDfnwcrTio2oMAi7sRrbnFN6syYBXWc6y
-      lN0GXxmF1UYqQqKsl2AdDr0/jTSD4omKZ7BNycFHQcezxpw5aOqLgGX9H2nZcMSe
-      LoBj+vrPsg6jvO1tl/9JDSoB0WV5ADEU6YdvlFoVuHfG+q8r/mCvQSu4rObfRNtw
-      hlVVg3Usnx0S9OVAPsNdHD8tAa+KEx285gW4iGx2ZVUA1BvvSdwfTI9AaQJPGBIC
-      k8mvHTpmlMYToipk4RbOyL1Kf7/tQC6Dy9ezKfmW0RTgpOEuiOtkwmQQ9QdNTYfC
-      6aaXf9rOrW9F+P6YbtmzbSMHNkiizwqH+KVnumYSI3N7w2BcsW756YIybY0vrv5D
-      4o0joOXGm+9a3kFeeun/75/892wwBjH43GhpM6cS2V7yO0u6PAoNMcPqFQZoETFS
-      kNnkAI0dVDkbpPk/lb3K2gCjV+npvBjRmP4ObEhcTJO3D94XMA3SowkptwARAQAB
-      tFhNZXRhQ2VudHJ1bSBQYWNrYWdlIFJlcG9zaXRvcnkgKE1ldGFDZW50cnVtIFBh
-      Y2thZ2UgUmVwb3NpdG9yeSBQR1Aga2V5KSA8bWV0YUBjZXNuZXQuY3o+iQI+BBMB
-      AgAoBQJXHeS6AhsDBQkSzAMABgsJCAcDAgYVCAIJCgsEFgIDAQIeAQIXgAAKCRA1
-      c/2Uo4XNsBA+EACxHXz1Gl+nXBYAyfkKVPmbHju9MumZl8QurblyBQMSmCQY2xGS
-      ZTxsLZNKEoXYCHf/t73rLc0qSsDBJ8Asa/Ow2YzAzFCd4phb1WM/jHys5g0ZOQLM
-      Eje2mPd/vIIgVz8l96YleRD7LClZMsQ68A1r15rwG5OyR0ZG5W5JlKdlDafsg8xB
-      ML3iEcGQO2JDEjQC6RmI+PuR21QLfVNQUWkl8Rpp6b0l+A2OBnhX9n5CImFQEeTg
-      xicqxGT7Mj9Ey9pkhyg3IbXyo2VjALVoyzrNvmjvKK1M6xZ70WGcKYX8HQLbF7Qt
-      NRxnKns0d2luzkDCpKBb/oi/AmlYfLmVkZL+cUl8O0Ab2U+Sj7o9Ib+OohrOh82R
-      eoqD6vSfbYeDwugptUf8iO/iCeQgnUKP378leRQTdmg8tvhlc91cePCiSdMmCVQP
-      3WiFGtuiLk9f+1hHx0Gk4vk9pP8POeQD3WFbRGbH+LhQf5S4QCUifHSpCSlSiAcV
-      DqlWycDdXfiDSQg04741Fwq4ZOWShvdwtVijuGh9KOTO+facoGnk4HiCMGeFdgOW
-      2+t9c0Z3odSWCobDBzw8kWsE88t0X4Eubvp1tL7TPE+nvRqgnyDjoMbjoYWiSvD3
-      8C9uBPJjqBsqusDQC0qLJFzgkyd84alI4e1ZXpoHSGzz1hAb8sRIQVUiKYkCmAQT
-      AQgAjAWCaROLuwUJEswDAAQLCQgHCRA1c/2Uo4XNsEcUAAAAAAAeACBzYWx0QG5v
-      dGF0aW9ucy5zZXF1b2lhLXBncC5vcmeTcrSQeppC87+FvoDz1u5UbuLag5UNcu9M
-      GSIW6AV8fwMVCAoEFgIDAQIXgAIbAwIeARYhBPETg/VShIUi5OrKRDVz/ZSjhc2w
-      AADkyQ//cfgNr94N+4eGZZ/qdK5VfJS2JiSNQ1tzjtO/b60hTBWUwUMYkl1iTZQf
-      2Jl+UOFkWHIzlh2aEheW6EZtNnF+EK0GwdT8uuRpz/L7NUANO94ncc1qBTGEGEB5
-      Lsu3kJeN4D+sCOHXdT+Y6uhkGq3sZi+meQO0P0ZeoGt2PccNK2yY7Tne4QbqOLLD
-      tdlmxv7AI3Uxn64Gvlc1+KXAqWp5HwvPvUnVRPOtUld/JmSbz/YhBGRRE6yfaLyl
-      mtuWf+TSdeWnbvG6LwFNsAWiVfqd5ULLyZ+zp0S15gv/jnxRavB4wK9yP3OcSkhI
-      3VSVSbgPHjM03rCBIvNz6R835O/Cpd5VxVGxoYLkJ9LrL7BhIbfarQDLq+YOrLZZ
-      G/trXUhCD5J1ho8gK12YRFei20UkDhep1xGFHyVEdeNOax/wdK8O8NZ5HT6hG7hs
-      ZYctwkx/oJbgqMDDX5ySNpl4rbRjygH8Kn/KUrC+arSz+zjkmC2TKTbKW7B77lqr
-      rdY/45eAioat3+kkeTwAyoGdQWdIDNLQJjx73yyLRx3i+ZHwnCiV4Ygynip7EGD3
-      IPIIWO7X7+Tnd6yb2RerWe0iAOZNTAdYDG16QW2xQGkeTxJOUk80fAyLwTbqhH4i
-      NryaH+hCkv8CkOu0dndoHIF04wY/3IqzGFgHbsYn7Ph/aD4Sqrm5Ag0EVx3kugEQ
-      AMlCHa+UEn84Qh9oRbT7qozB+bQLl8fvC2XYcLYCAo2hFa6UKvbESYD0knTjTrLR
-      JGhVlJtQfIxgAs9RCWOPCXysaJe1dHgQleIVYDeAjS5ttxOOhSqv9tBrmHJKf5mY
-      sKu/OPNNUytuPigagKJ+D2xD4pQBLRO7udKcb0Bq7wnTF0joZu3Ge5UubKg9fUKZ
-      Uv8E41MAl3G1FYYCHEiuvpT/BQwRAhUMlVDQVQOJWQNhBTESRTHJG4rWn2tsWObi
-      lIqSK3ZtDSKrS+UE+sXTuQx8f8/loZ58BYauyf8YRYoUXMYITP3yGryBHYaWj8/H
-      86E9riXbeFXS74hUqmaV0kvi7nt5o+Q0meTjzXb2VTrJC/vt9LZ0ciu1RGI/3HVA
-      CKeXcKRp9mWA1EPuBtrWASgjp3esGHlYiIIDr+dQ1uHU5NdNci+dL7PclNAT5Dv5
-      02Uevng16852B43UOzNuo9x2MUbQ4oIMCmMPMsOHFjgQsJ4gKBIudD8jLpDIKANS
-      q8oQQQpKq5+bUO/9GHD8pR8AlxtWqHp6TtQP0oLEhON8emUNoHXxub94adL8Nk3v
-      3t9K0mXQJHfbxLJYgB95+yfWaGIQFmSgFzjrny/OH/MFzEVr/HDDZbw+zGoUUsmG
-      wTi/I1OSV2pnwC/lzDww23wa5h5kZjJ7ttg88sVrSR5vABEBAAGJAiUEGAECAA8F
-      Alcd5LoCGwwFCRLMAwAACgkQNXP9lKOFzbD+cQ/6A0jbRXiX+Dmo8ppj74hMBR5J
-      y6PXoLOAwD3Vr13bfJkpTDPUZPunC3e4ZlI+BxJzOmYZph5EUIAR5oeIKX1tTBEf
-      6POCl+Sj/3hpOLObHQy29GUPBX4Qxj2Be4Qt9BXnpgJbbdzyTt9ZQhAHpXnFRQY5
-      SCfNUPwBJdcS7tQO3k/Zoqz90+lWd2p0DEwH92kVFPXdM9gq5N77BXTP93EBNjT5
-      1AhN5SvtQk2Z4CwCUa9DIUeiV0czLGlFQFIjuI4+pdWKNVibyfDw4ijs4UfF3bH2
-      gxkFgkx7pFmwF4ntKOpQUN8kNjtmYYpPeE1a9xlXojYanzPU47QSeNn70Nm1wfIU
-      2/hqA10fbfAXJy134LsSFSX58bcWFIsD6jUOlDaRCAp5iYQSX1lxsTBQ26CR8qk9
-      veFFnpU0p8Lc+6tZNrLzMXmLWhgRDyiz5m/xKvV/4t1rrf8HJNYCn3aveSGZgfCn
-      lmMmQDi8KlAI52zMD82LuWHh5Moq3Ro16lROvgUYQfVz7CUg0NcVgYKowsoFSc6/
-      06PPrf68KS/PrqtBDpWB+XsvGzY6gc1DNtExqKgMdM0/v4gMdHYzorvhpMt1Kin+
-      h+/O0MD/dF5rkqAl1vADzlELfcsWEh95cmbpYuV1nFSct6wUh2ewbtqS5QgmFRDJ
-      yL+xaHj/rT+mAHZb/XGJAoQEGAEIAHgFgmkTi7sFCRLMAwAJEDVz/ZSjhc2wRxQA
-      AAAAAB4AIHNhbHRAbm90YXRpb25zLnNlcXVvaWEtcGdwLm9yZ7l6RiBE8BfcR9kF
-      qWyfzCqUWUFQTef14GvYyZIl3y0YAhsMFiEE8ROD9VKEhSLk6spENXP9lKOFzbAA
-      AOHgEACGPDne/ROAWnx8eVZTg3dKUNrFFOVgQeTN1sdJSKni4L2xwQ/ZASkCL0QL
-      OAqW7fcoaTk2Fns8Zefb+lkm1TPnjtiiFdD65chfATCCqROoN38eHaf1PiW8OvID
-      9kr+qgw+df0i197jm/0PD/BooPg7CskwspKtFcvjzYAd0Wm6myw4rkyPi7Uq6ENm
-      1YK6UeTX/UdGrY9ndOnLbhXcCmjbPe88T+fnJkNsnheV9KMYbCh8SAm/w8Ok7avV
-      MIiSMoisStLwQvdCNEYH8wahgOdLTXOG07+KxrPBwngpxT82OnDZdQD5LSYzTgfX
-      yLAlWwnlW/qWp+kuAG0QP+Mem/owQoJBt7ngZ4WuoTX0g0UfnmEQqrkzYelBDrT0
-      cvBsdt7R/mIw2JX+obOeflBKsr+WyXuMCNSaC8UfWJOpC90iJYz7slhxXfO4YACE
-      h6g55ZJFMhCjEfKR5lFjMQk7PaWz/icGbrr093v9wZBrZnoHTW35ikzdq3Pkp+ed
-      AlVCamcKXcM0JJvpvCNYFAbtbLlp5f9MUV41Oaj3OBfHYGirvDATXYPnZMUSryjM
-      Ppo2KgGTBw76SnxvoAlBfdpDaBbc7vsAzVzYc9bS7D9VIcnFVYs9n8HReIrV8MG0
-      nKX7FL6RJOXST91Ay1cX4LEX8dN8Uy3vQ/c3pKJOjcPjWY1ut5kCDQRpE5ZhARAA
-      zGo3i1WQB+BLsjhICUvkV9MzTC0pD2Bllk8jPXPQ7TcybeHF8FG+ve6esKYlvmov
-      P31CPiRG3NtXD7TfWooZBCDGED695AANmQmrRzh75pld3zW1DrOU+PE01mnooBj8
-      k69V674VZkOb5j/3hm8jzHVDngRCXjEhR2UQpFnWfw41RW9sgLjFsvl9ElvLo3On
-      L/QNFiP32wO3ZSi0KBw8LqKm/ET3GuzXyvSdrFfYHKyYouAF3xrFDSpw51N/BUGW
-      c3cB78oMikSLNG3AFX7eTCFoCUOlhT/40uAvM3T9vma+gHdMxVux5ppS+imF3yTL
-      ZvZExJsLTEL2hZ1xrFJKOn9nFQQpSUFro2v5h2cJ8CP9K3dxUPiscCRMxld+2RAw
-      DABu/TybeoZtkbjbuzWrrdmxPeD8vSS2z3Uz17yOSyx3hVZTOA7KFAhyvKilhm9o
-      yimbHiK7OQG3kOZjlnUBLtfo8ZMlVisTGu9La+PdYpfK+iNGXQAZam4uzJesc4X9
-      O/KqY0RCaE66wABB5ZTr9OD8bwhMtwVFcr2gJu+F1H9nvpFZtWKRgiKwP6jbQrIz
-      8Zd8Jze8bp+aSaMuu0yVi0eLMs2noZ9aeknVbJN4ZyyxUToEeWFsAO6zZjugpCeu
-      /g+CDG0vBUhZEoqWuh6AD78s1oORUj/ZOvwyw/zVIb8AEQEAAbQ3TWV0YUNlbnRy
-      dW0gUGFja2FnZSBSZXBvc2l0b3J5IFBHUCBrZXkgPG1ldGFAY2VzbmV0LmN6PokC
-      VAQTAQoAPhYhBDzK6/3DOY52IRH7K0A4dcE+Hxp9BQJpE5ZhAhsDBQkSzAMABQsJ
-      CAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEEA4dcE+Hxp9vDIQAIPG9A8aaYuf11kK
-      npFbodX3DuEpJUt6RDpY8e5Ai58B6aB+mRJan/Chrw1oRBpUjtexPQF8lD6B7T8O
-      u6wHt1eXP42A5//OPl8QXeBqk4XvUM00CJ5l4xa/cQ3hkSEJTb07JpmyM0M9EZVK
-      NMSF3I5YZPc4SOeZkgw5Vti3zUG1jVFpkBSGHOS7Tz3475BpsqX8Z6iJISvMyR53
-      NlHzZTcBNZYdACBqnCycFq8NMxaB0RccyL8ZmTomnjy/ZGBI3EktckqQHlORKwR8
-      q9NSGi6pHmZ/XlBX23mBchTlKNJtEjlNAEOmSKJM+iiBYAxe8VHJZLUreVF3QXUC
-      2X50yRJ1D5ZUfEOw46dh4815Dxk3A1b+JY4B/U7w+JL10vFJhisPIVv7bSlpKabP
-      pqX4y0qV9rFaCO3j9ogVRPYm5L58kiXKZtMetEI48q5P0btHehNV4XAG2nhbU0ZU
-      W/9kFpNNPobU1kw4eSfFDTMKEgTy1x7OxAA18DJdQflWVBt673KAGCqs0Q8fsH7U
-      cvMB6JASY4Pa4tZyuAWY+sK4E5mzFWczUIb5WMskNOKs+7RKqEyFJ3N/AhvmIvRh
-      AlIwp++y4mFAgABJdfc8Dh/Z8hdBqHUtdsrKXybHCy4K3R549L3abW8tzBr2Fdnn
-      UaLg8TEvCQKkxr1CsYBZxJh32G6FuQINBGkTlmEBEADC01nzG0a6VgJhOCMRUL9P
-      B7+NERwdowv9ve+Rjs7jpuDf7urRgO6GL0Z0cpXabwQFW0aTcezOtfzLYjy0PQdj
-      98SBiMvIi5xJ5m0uO2py3NUeqaxxMFhO6BiyWleaPclIaqmAfD0An7t0M1HLYADt
-      njP+av9mhhEkjpRFBdnGQN+dPn/sw2AyJGoIbQG6tMelA0WhCYz90HrycRr2jX77
-      FMQ7mwHbCNHEq74bz/3/ZafjZOIQOcnMHcVSFHMo6/Kb6Yp7kmlox71r9+s10/PJ
-      T5va+bpiSKtKBzK03PD5yFpOP7pe7O+1k+Eu1iR/WuwDNz9jAhY5d6WYb2JyVbYO
-      +71z8KioHE4RKMKUJ+RlRdf2Ku4DY3vHuL6Wdxs2NJkN8EgTSlevjbSZMcgico71
-      HAS8gBkbqu6pn1HgbL1jRKhEsHiG81J1tvMW649P3SSYaB5nFDTjsiNpBxU/IKCt
-      lijY+7g7J/VJpB1KteUIJGO4rBkfDofgdNSPYkx52MkgO7EmvdGnSQcvr1dZ9YZA
-      oJaGhkRo8nD7g5p6tGH/51tCFCs5UsfcAixwQ0eWTLDt3Vtjkv40S9T8cnPRIATq
-      EQBJ+lnoD3VXDsQ8myBCRlL57RHgFV2iyY1T3/gXCb8t3InUucc1+SYHbrjWOY7q
-      V2oC2hAk2PDLApx2GuKKhwARAQABiQI8BBgBCgAmFiEEPMrr/cM5jnYhEfsrQDh1
-      wT4fGn0FAmkTlmECGwwFCRLMAwAACgkQQDh1wT4fGn0Hhg//bXNfDBi4V45Ez+Rh
-      XGCMN/vUOV5wKbDYQ0foFB8MHyxXLKyc8EgXp/z7sRPfzeU20gmSfNBCcald12nf
-      rAzLWYD4bY7Wo7xh+YriQEY9vQb3H010zt5T/X7ZtTiJlBBrFSLCcrbFF86XaUzc
-      KyGYefPo8oYqU4qRqXwhWK32WFFRgO6MYHsP3YCCrQ3b8VurPAaNUGqwuDQ2SNrU
-      h/bORUwg2xbtlz28BSxjbwcVHxFiWOuoPPJTpWuUOHzRzg7NlVYxnnqYarIS0UY+
-      2DWg21Wdd07Ilj/OxpX9i/EYvWPPzeVki0ewLo8waS3/lYW6dPDjyNpIFMb5qMib
-      4Yu+wNTUnOnTsaP7Np77pJ6viH1RHRsJFM7XYRQr4HC3zKAlievwu1mopzAIz2Xx
-      GGzzrfyJJwI7/3onSTJsaoI7BM4K4KT3hEyvO3ac4SQbguhAMHK2PXH9pJK6GPOM
-      0eD5p8xIB1eFrzTxI7txiy+elxB/mzOG6Ll1IPbKrW9YJD7VvobSc5Jx3PUFgExr
-      4/wcuxoj5tRBOxfAqst/Vy3zZuLNs3BrVLnoaRDs/BWFbWSxIgjSO9/UzzpE3/yQ
-      xwPTUkAbeeKebPBxMsW/dMYuLU7T5wbwEmitdcvYlLMLYjY2kJgIRzAGgqyi5Zgd
-      cNQwjEYvblMuDG+ZJDlyJJGcIgY=
-      =3HjE
-      -----END PGP PUBLIC KEY BLOCK-----
+- name: "add MetaCentrum repository key"
+  ansible.builtin.get_url:
+    url: "https://repo.metacentrum.cz/key.asc"
+    dest: /etc/apt/keyrings/metacentrum.asc
+    force: true
 
 - name: remove old format meta_repo.list
-  file:
+  ansible.builtin.file:
     path: /etc/apt/sources.list.d/meta_repo.list
     state: absent
 
@@ -157,7 +31,7 @@
     name: meta_repo
     types: deb
     architectures: amd64
-    signed_by: /etc/apt/keyrings/metacentrum2025.asc
+    signed_by: /etc/apt/keyrings/metacentrum.asc
     uris: https://repo.metacentrum.cz/
     suites: all
     components: [ "main", "pilot" ]
