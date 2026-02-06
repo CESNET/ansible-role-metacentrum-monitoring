@@ -1,12 +1,4 @@
 ---
-- name: Install apt-transport-https and lsb-release
-  apt:
-    update_cache: yes
-    name:
-      - apt-transport-https
-      - lsb-release
-      - gpg
-
 - name: "create /etc/apt/keyrings"
   file:
     state: directory
@@ -20,6 +12,14 @@
     url: "https://repo.metacentrum.cz/key.asc"
     dest: /etc/apt/keyrings/metacentrum.asc
     force: true
+
+- name: Install apt-transport-https and lsb-release
+  apt:
+    update_cache: yes
+    name:
+      - apt-transport-https
+      - lsb-release
+      - gpg
 
 - name: remove old format meta_repo.list
   ansible.builtin.file:
